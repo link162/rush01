@@ -50,6 +50,7 @@ void Monitor::update()
 	username = exec("whoami");
 	hostname = exec("hostname");
 	cpu_name = exec("sysctl -n machdep.cpu.brand_string");
+	mem_usage = stoi(exec("top -l 1 | grep 'PhysMem:' |  cut -d' ' -f2"));
 	cpu_load = stof(exec("ps -A -o %cpu | awk '{s+=$1} END {print s \"%\"}'"));
 	cores = stoi(exec("system_profiler SPHardwareDataType | grep Cores | awk '{print $5}'"));
 	os_name = exec("sw_vers");
@@ -58,13 +59,25 @@ void Monitor::update()
 }
 void Monitor::run_monitor()
 {
-	PRINT(size);
-	while (1)
+	if (ncurses)
 	{
-		update();
-		system("clear");
-		introduce();
-		wait_one_sec();
+		while(1)
+		{
+			update();
+			Ncurses disp;
+			disp.init();
+			disp.display();
+		}
+	}
+	else
+	{
+		while (1)
+		{
+			update();
+//			system("clear");
+//			introduce();
+//			wait_one_sec();
+		}
 	}
 }
 void Monitor::introduce() const
@@ -80,4 +93,5 @@ void Monitor::introduce() const
 	PRINT(os_name);
 	PRINT(bytes_in);
 	PRINT(bytes_out);
+	PRINT(mem_usage);
 }

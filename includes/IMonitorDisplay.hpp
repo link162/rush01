@@ -10,6 +10,7 @@ public:
 
     virtual void init(void) = 0;
     virtual void update(void) = 0;
+	virtual void display(void) = 0;
 };
 
 #endif

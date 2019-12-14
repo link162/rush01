@@ -17,6 +17,7 @@ class Monitor : public IMonitorModule
 	std::string os_name;
 	float cpu_load;
 	int cores;
+	int mem_usage; //Mb
 	int bytes_in;
 	int bytes_out;
 	

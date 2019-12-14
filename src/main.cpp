@@ -45,7 +45,7 @@ int  comp(std::string s1, std::string s2)
 int main(int argc, char **argv)
 {
 	int arr[7];
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 7; i++)
 		arr[i] = 0;
 	if ((argc == 2 && !comp(argv[1], "-h")) || argc > 7)
 		print_usage();
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 			else if (!comp(argv[i], "-l") && !arr[6])
 			{
 				arr[6] = 1;
-				grill.add_module(i - 1, 7);
+				grill.add_module(i - 1, 0);
 			}
 			else
 				print_usage();

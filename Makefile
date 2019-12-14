@@ -7,8 +7,8 @@ LIB =	-lncurses
 SDIR =	src/
 ODIR =	obj/
 IDIR =	includes/
-SRC =	main.cpp Monitor.cpp 
-INC =	IMonitorDisplay.hpp IMonitorModule.hpp Monitor.hpp header.hpp
+SRC =	main.cpp Monitor.cpp Ncurses.cpp
+INC =	IMonitorDisplay.hpp IMonitorModule.hpp Monitor.hpp header.hpp Ncurses.hpp
 OBJ =	$(SRC:.cpp=.o)
 I =		$(addprefix $(IDIR), $(INC))
 S =		$(addprefix $(SDIR), $(SRC))

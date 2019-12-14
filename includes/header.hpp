@@ -13,9 +13,11 @@
 #include <net/if.h>
 #include <net/route.h>
 #include <sstream>
+#include <ncurses.h>
 #include "IMonitorModule.hpp"
 #include "IMonitorDisplay.hpp"
 #include "Monitor.hpp"
+#include "Ncurses.hpp"
 
 #define PRINT(s) std::cout << (s) << std::endl
 std::string exec(const char *cmd);

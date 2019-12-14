@@ -9,17 +9,15 @@
 #include <queue>
 #include <deque>
 #include <sys/sysctl.h>
+#include <netinet/in.h>
+#include <net/if.h>
+#include <net/route.h>
+#include <sstream>
 #include "IMonitorModule.hpp"
 #include "IMonitorDisplay.hpp"
 #include "Monitor.hpp"
-#include "Time.hpp"
-#include "Hostname.hpp"
-#include "Network.hpp"
-#include "Cpu.hpp"
-#include "Ram.hpp"
-#include "System.hpp"
 
-#define STD_BUFF 100
 #define PRINT(s) std::cout << (s) << std::endl
+std::string exec(const char *cmd);
 
 #endif

@@ -5,11 +5,11 @@ void print_usage()
 	std::string us = "Usage: ./ft_gkrillm\n\
 					  -h help\n\
 					  -t time\n\
+					  -u hostname\n\
 					  -c CPU\n\
 					  -n Network\n\
 					  -r RAM\n\
-					  -o OS info\n\
-					  -u hostname\n";
+					  -o OS info\n";
 	std::cout << us ;
 }
 

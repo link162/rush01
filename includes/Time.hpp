@@ -6,14 +6,14 @@
 class Time : public IMonitorModule
 {
 	private:
-	std::string time;
-	std::string data;
+	Time(const Time &old);
+	Time &operator = (const Time &old);
+	tm *curr;
 	public:
 	Time();
 	~Time();
-	Time(const Time &old);
-	Time &operator = (const Time &old);
 	void update();
+	void introduce() const;
 };
 
 #endif

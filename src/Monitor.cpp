@@ -1,13 +1,13 @@
 #include "header.hpp"
 
-Monitor::Monitor() : size(6)
+Monitor::Monitor() : size(2)
 {
-	list = new const IMonitorModule*[6];
+	list = new IMonitorModule*[6];
 	for (int i = 0; i < size; i++)
 		list[i] = NULL;
 	list[0] = new Time;
-	/*list[1] = new Hostname;
-	list[2] = new Network;
+	list[1] = new Hostname;
+	/*list[2] = new Network;
 	list[3] = new Cpu;
 	list[4] = new Ram;
 	list[5] = new System;*/
@@ -15,7 +15,7 @@ Monitor::Monitor() : size(6)
 Monitor::Monitor(int size)
 {
 	this->size = size;
-	list = new const IMonitorModule*[size];
+	list = new IMonitorModule*[size];
 	for (int i = 0; i < size; i++)
 		list[i] = NULL;
 }
@@ -37,7 +37,7 @@ Monitor &Monitor::operator = (const Monitor &old)
 	*this = old;
 	return *this;
 }
-void Monitor::add_module(IMonitorModule const *mod)
+void Monitor::add_module(IMonitorModule *mod)
 {
 	int i;
 	for(i = 0; i < size && list[i]; i++);
@@ -63,9 +63,14 @@ void wait_one_sec()
 }
 void Monitor::run_monitor()
 {
+	PRINT(size);
 	while (1)
 	{
-		PRINT("hello");
+		system("clear");
+		for (int i = 0; i < size; i++)
+			list[i]->update();
+		for (int i = 0; i < size; i++)
+			list[i]->introduce();
 		wait_one_sec();
 	}
 }

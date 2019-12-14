@@ -1,4 +1,9 @@
 #include "header.hpp"
+#include "mlx.h"
+void *mlx_ptr;
+void *win_ptr;
+void *img_ptr;
+void *data_ptr;
 
 Monitor::Monitor() : ncurses(false), size(6) {}
 Monitor::Monitor(int size) : ncurses(false), size(size) {}

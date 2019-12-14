@@ -19,8 +19,16 @@
 #include "Monitor.hpp"
 #include "Ncurses.hpp"
 
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sys/types.h>
+#include <sys/sysctl.h>
+#include <sys/utsname.h>
+# include <string>
+#include <vector>
+# include <fcntl.h>
 #include <math.h>
-#include "mlx.h"
 #include <unistd.h>
 # define ABS(x) ((2 * ((x) > 0) - 1) * (x))
 # define STEPX(x) ((x == 0) ? 1 : (ABS((ABS(x) <= 1) + (1 / x) * (ABS(x) > 1))))
@@ -44,9 +52,7 @@ typedef struct s_vector
 void	move_and_draw(t_vector old, t_vector n, int *data_ptr);
 
 void line_to_image(t_vector s, t_vector e, int *data_ptr);
-void *mlx_ptr;
-void *win_ptr;
-void *img_ptr;
-void *data_ptr;
+
+
 
 #endif

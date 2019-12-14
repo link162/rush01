@@ -21,6 +21,7 @@ std::string exec(const char* cmd) {
 void print_usage()
 {
 	std::string us = "Usage: ./ft_gkrillm\n\
+					  -l ncurses mode\n\
 					  -h help\n\
 					  -t time\n\
 					  -u hostname\n\
@@ -43,7 +44,7 @@ int  comp(std::string s1, std::string s2)
 
 int main(int argc, char **argv)
 {
-	int arr[6];
+	int arr[7];
 	for (int i = 0; i < 6; i++)
 		arr[i] = 0;
 	if ((argc == 2 && !comp(argv[1], "-h")) || argc > 7)
@@ -73,20 +74,25 @@ int main(int argc, char **argv)
 				arr[2] = 1;
 				grill.add_module(i - 1, 3);
 			}
-			else if (!comp(argv[i], "-u") && !arr[3])
+			else if (!comp(argv[i], "-n") && !arr[3])
 			{
 				arr[3] = 1;
 				grill.add_module(i - 1, 4);
 			}
-			else if (!comp(argv[i], "-u") && !arr[4])
+			else if (!comp(argv[i], "-r") && !arr[4])
 			{
 				arr[4] = 1;
 				grill.add_module(i - 1, 5);
 			}
-			else if (!comp(argv[i], "-u") && !arr[5])
+			else if (!comp(argv[i], "-o") && !arr[5])
 			{
 				arr[5] = 1;
 				grill.add_module(i - 1, 6);
+			}
+			else if (!comp(argv[i], "-l") && !arr[6])
+			{
+				arr[6] = 1;
+				grill.add_module(i - 1, 7);
 			}
 			else
 				print_usage();

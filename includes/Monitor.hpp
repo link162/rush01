@@ -5,6 +5,7 @@
 
 class Monitor : public IMonitorModule
 {
+	bool ncurses;
 	int size;
 	int order[6];
 	tm *struct_curr_time;

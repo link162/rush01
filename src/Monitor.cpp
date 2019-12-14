@@ -1,7 +1,7 @@
 #include "header.hpp"
 
-Monitor::Monitor() : size(6) {}
-Monitor::Monitor(int size) : size(size) {}
+Monitor::Monitor() : ncurses(false), size(6) {}
+Monitor::Monitor(int size) : ncurses(false), size(size) {}
 Monitor::~Monitor() {}
 Monitor::Monitor(const Monitor &old)
 {
@@ -14,7 +14,10 @@ Monitor &Monitor::operator = (const Monitor &old)
 }
 void Monitor::add_module(int i, int act)
 {
-	order[i] = act;
+	if (!act)
+		ncurses = true;
+	else
+		order[i] = act;
 }
 
 int get_sec()
@@ -66,6 +69,7 @@ void Monitor::run_monitor()
 }
 void Monitor::introduce() const
 {
+	PRINT(ncurses);
 	PRINT(curr_time);
 	PRINT(uptime);
 	PRINT(username);

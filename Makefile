@@ -1,20 +1,20 @@
 .PHONY: all clean fclean re
 
-NAME =	gkrill
+NAME =	ft_gkrillm
 CC =	clang++
 FLAGS =	
 LIB =	-lncurses
 SDIR =	src/
 ODIR =	obj/
 IDIR =	includes/
-SRC =	main.cpp
-INC =	header.hpp
+SRC =	main.cpp Time.cpp Monitor.cpp
+INC =	IMonitorDisplay.hpp IMonitorModule.hpp Monitor.hpp Time.hpp header.hpp
 OBJ =	$(SRC:.cpp=.o)
 I =		$(addprefix $(IDIR), $(INC))
 S =		$(addprefix $(SDIR), $(SRC))
 O =		$(addprefix $(ODIR), $(OBJ))
 
-all: $(NAME)
+all: fclean $(NAME)
 
 $(NAME): $(O)
 	@$(CC) $(FLAGS) -o $@ $^ -I $(IDIR) $(LIB)

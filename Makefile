@@ -3,7 +3,7 @@
 NAME =	ft_gkrillm
 CC =	clang++
 FLAGS =	
-LIB =	-lncurses
+LIB =  -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -lncurses
 SDIR =	src/
 ODIR =	obj/
 IDIR =	includes/
@@ -20,7 +20,7 @@ $(NAME): $(O)
 	@$(CC) $(FLAGS) -o $@ $^ -I $(IDIR) $(LIB)
 
 $(ODIR)%.o: $(SDIR)%.cpp $(I)
-	@$(CC) $(FLAGS) -c $< -o $@ -I $(IDIR)
+	@$(CC) $(FLAGS) -c $< -o $@ -I $(IDIR) -I /usr/local/include 
 
 $(O): | ./objects
 ./objects:

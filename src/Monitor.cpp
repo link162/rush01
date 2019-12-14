@@ -71,13 +71,25 @@ void Monitor::run_monitor()
 	}
 	else
 	{
+		int bpp;
+		int sz_l;
+		int a;
+		char str[] = "rush01";
+
+		mlx_ptr = mlx_init();
+		win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, str);
+		img_ptr = mlx_new_image(mlx_ptr, WIDTH, HEIGHT);
+		data_ptr = (int *)mlx_get_data_addr(img_ptr, &bpp, &sz_l, &a);
+
+		mlx_loop(mlx_ptr);
+		/*
 		while (1)
 		{
 			update();
 //			system("clear");
 //			introduce();
 //			wait_one_sec();
-		}
+		}*/
 	}
 }
 void Monitor::introduce() const

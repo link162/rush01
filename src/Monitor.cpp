@@ -5,7 +5,13 @@ void *win_ptr;
 void *img_ptr;
 void *data_ptr;
 
-Monitor::Monitor() : ncurses(false), size(6) {}
+Monitor::Monitor() : ncurses(false), size(6)
+{
+	for (int i = 1; i <= 6; i++)
+	{
+		order[i - 1] = i;
+	}
+}
 Monitor::Monitor(int size) : ncurses(false), size(size) {}
 Monitor::~Monitor() {}
 Monitor::Monitor(const Monitor &old)
@@ -17,12 +23,12 @@ Monitor &Monitor::operator = (const Monitor &old)
 	*this = old;
 	return *this;
 }
-void Monitor::add_module(int i, int act)
+void Monitor::add_module(int act)
 {
 	if (!act)
 		ncurses = true;
 	else
-		order[i] = act;
+		order[size++] = act;
 }
 
 int get_sec()
@@ -79,12 +85,12 @@ void Monitor::run_monitor()
 {
 	if (ncurses)
 	{
+		Ncurses disp;
+		disp.init();
 		while(1)
 		{
 			update();
-			Ncurses disp;
-			disp.init();
-			disp.display();
+			disp.display(this);
 		}
 	}
 	else
@@ -94,10 +100,10 @@ void Monitor::run_monitor()
 		int a;
 		char str[] = "rush01";
 
-		mlx_ptr = mlx_init();
-		win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, str);
-		img_ptr = mlx_new_image(mlx_ptr, WIDTH, HEIGHT);
-		data_ptr = (int *)mlx_get_data_addr(img_ptr, &bpp, &sz_l, &a);
+//		mlx_ptr = mlx_init();
+//		win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, str);
+//		img_ptr = mlx_new_image(mlx_ptr, WIDTH, HEIGHT);
+//		data_ptr = (int *)mlx_get_data_addr(img_ptr, &bpp, &sz_l, &a);
 
 //		mlx_loop_hook(mlx_ptr, &do_graphics, (void *)this);
 //		mlx_hook(win_ptr, 12, 12, loop_hook, (void *)this);

@@ -5,6 +5,8 @@
 
 class Monitor : public IMonitorModule
 {
+	
+	public:
 	bool ncurses;
 	int size;
 	int order[6];
@@ -20,15 +22,13 @@ class Monitor : public IMonitorModule
 	int mem_usage; //Mb
 	int bytes_in;
 	int bytes_out;
-	
-	public:
 	void update();
 	Monitor(const Monitor &old);
 	Monitor &operator = (const Monitor &old);
 	Monitor();
 	Monitor(int size);
 	~Monitor();
-	void add_module(int i, int act);
+	void add_module(int act);
 	void introduce()const;
 	void run_monitor();
 

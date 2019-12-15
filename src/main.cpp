@@ -49,50 +49,52 @@ int main(int argc, char **argv)
 		arr[i] = 0;
 	if ((argc == 2 && !comp(argv[1], "-h")) || argc > 7)
 		print_usage();
-	if (argc == 1)
+	if (argc == 1 || (argc == 2 && !comp(argv[1], "-l")))
 	{
 		Monitor grill;
+		if (argc == 2)
+			grill.ncurses = true;
 		grill.run_monitor();
 	}
 	else
 	{
-		Monitor grill(argc - 1);
+		Monitor grill(0);
 		for (int i = 1; i < argc; i++)
 		{
 			if (!comp(argv[i], "-t") && !arr[0])
 			{
 				arr[0] = 1;
-				grill.add_module(i - 1, 1);
+				grill.add_module(1);
 			}
 			else if (!comp(argv[i], "-u") && !arr[1])
 			{
 				arr[1] = 1;
-				grill.add_module(i - 1, 2);
+				grill.add_module(2);
 			}
 			else if (!comp(argv[i], "-c") && !arr[2])
 			{
 				arr[2] = 1;
-				grill.add_module(i - 1, 3);
+				grill.add_module(3);
 			}
 			else if (!comp(argv[i], "-n") && !arr[3])
 			{
 				arr[3] = 1;
-				grill.add_module(i - 1, 4);
+				grill.add_module(4);
 			}
 			else if (!comp(argv[i], "-r") && !arr[4])
 			{
 				arr[4] = 1;
-				grill.add_module(i - 1, 5);
+				grill.add_module(5);
 			}
 			else if (!comp(argv[i], "-o") && !arr[5])
 			{
 				arr[5] = 1;
-				grill.add_module(i - 1, 6);
+				grill.add_module(6);
 			}
 			else if (!comp(argv[i], "-l") && !arr[6])
 			{
 				arr[6] = 1;
-				grill.add_module(i - 1, 0);
+				grill.add_module(0);
 			}
 			else
 				print_usage();

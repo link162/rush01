@@ -3,7 +3,6 @@
 #include <functional>
 #include <ctime>
 #include <iomanip>
-#include <iostream>
 #include <exception>
 #include <map>
 #include <queue>
@@ -18,18 +17,16 @@
 #include "IMonitorDisplay.hpp"
 #include "Monitor.hpp"
 #include "Ncurses.hpp"
-
 #include <iostream>
 #include <vector>
 #include <string>
 #include <sys/types.h>
-#include <sys/sysctl.h>
 #include <sys/utsname.h>
-# include <string>
-#include <vector>
 # include <fcntl.h>
 #include <math.h>
 #include <unistd.h>
+#include <cstdlib>
+#include <stdlib.h>
 # define ABS(x) ((2 * ((x) > 0) - 1) * (x))
 # define STEPX(x) ((x == 0) ? 1 : (ABS((ABS(x) <= 1) + (1 / x) * (ABS(x) > 1))))
 # define STEPY(x) (1/x == 0) ? 1 : (ABS((ABS(x) >= 1) + x * (ABS(x) < 1)))

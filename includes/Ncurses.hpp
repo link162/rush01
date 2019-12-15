@@ -23,8 +23,8 @@ class Ncurses : public IMonitorDisplay
 	Ncurses(Ncurses const &old);
 	Ncurses &operator = (Ncurses const &old);
 	void init();
-	void update();
-	void display();
+	void update(Monitor const *monitor);
+	void display(Monitor const *monitor);
 };
 
 

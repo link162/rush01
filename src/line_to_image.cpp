@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 21:39:20 by tpokalch          #+#    #+#             */
-/*   Updated: 2019/12/15 16:48:21 by tpokalch         ###   ########.fr       */
+/*   Updated: 2019/12/15 22:28:16 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int			in_bounds(float x, float y)
 {
-	return ((lround)(x) < WIDTH && (lround)(y) < HEIGHT
-	&& (lround)(x) >= 0 && (lround)(y) >= 0);
+	return (lround(x) < WIDTH && lround(y) < HEIGHT
+	&& lround(x) >= 0 && round(y) >= 0);
 }
 /*
 int			colo(int i, t_vector s, t_global *g)
@@ -40,7 +40,7 @@ void		line_to_image(t_vector s, t_vector e, int *data_ptr)
 	float	y;
 
 	i = 1;
-	slope = (e.y - s.y) / (float)(e.x - s.x);
+	slope = (e.y - s.y) / static_cast<float>(e.x - s.x);
 	if (ABS(slope) > 1)
 		size = ABS(e.y - s.y) + 1;
 	else

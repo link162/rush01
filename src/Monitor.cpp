@@ -160,7 +160,7 @@ int loop_hook(void *p)
 	s[1].x = 500;
 	s[1].y = (100 - m->mem_usage) / static_cast<float>(10000) + 110;
 
-	move_and_draw(old, s, (int *)data_ptr);
+	move_and_draw(old, s, static_cast<int *>(data_ptr));
 
 	int c = m->cpu_load;
 
@@ -238,7 +238,7 @@ void Monitor::run_monitor()
 		mlx_ptr = mlx_init();
 		win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, str);
 		img_ptr = mlx_new_image(mlx_ptr, WIDTH, HEIGHT);
-		data_ptr = (int *)mlx_get_data_addr(img_ptr, &bpp, &sz_l, &a);
+		data_ptr = reinterpret_cast<int *>(mlx_get_data_addr(img_ptr, &bpp, &sz_l, &a));
 
 		mlx_loop_hook(mlx_ptr, (int (*)())(&loop_hook), reinterpret_cast<void *>(this));
 		mlx_loop(mlx_ptr);

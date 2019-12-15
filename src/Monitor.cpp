@@ -100,9 +100,9 @@ void Monitor::run_monitor()
 		data_ptr = (int *)mlx_get_data_addr(img_ptr, &bpp, &sz_l, &a);
 
 //		mlx_loop_hook(mlx_ptr, &do_graphics, (void *)this);
-		mlx_hook(win_ptr, 12, 12, loop_hook, (void *)this);
+//		mlx_hook(win_ptr, 12, 12, loop_hook, (void *)this);
 //		mlx_hook(win_ptr, 6, 6, mouse_move, NULL);
-		mlx_loop(mlx_ptr);
+//		mlx_loop(mlx_ptr);
 		/*
 		while (1)
 		{

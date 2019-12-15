@@ -31,6 +31,8 @@ class Monitor : public IMonitorModule
 	void add_module(int i, int act);
 	void introduce()const;
 	void run_monitor();
+
+//	int do_graphics();
 };
 /*
  * 1-time

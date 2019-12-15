@@ -62,6 +62,19 @@ void Monitor::update()
 	bytes_in = stoi(exec("top -l 1 | grep 'Networks:' |  cut -d' ' -f3"));
 	bytes_out = stoi(exec("top -l 1 | grep 'Networks:' |  cut -d' ' -f5"));
 }
+
+
+int loop_hook(void *param)
+{
+	printf("hi2\n");
+	return (1);
+}
+	
+int		mouse_move(int x, int y, void *param)
+{
+	return (1);
+}
+
 void Monitor::run_monitor()
 {
 	if (ncurses)
@@ -86,6 +99,9 @@ void Monitor::run_monitor()
 		img_ptr = mlx_new_image(mlx_ptr, WIDTH, HEIGHT);
 		data_ptr = (int *)mlx_get_data_addr(img_ptr, &bpp, &sz_l, &a);
 
+//		mlx_loop_hook(mlx_ptr, &do_graphics, (void *)this);
+		mlx_hook(win_ptr, 12, 12, loop_hook, (void *)this);
+//		mlx_hook(win_ptr, 6, 6, mouse_move, NULL);
 		mlx_loop(mlx_ptr);
 		/*
 		while (1)

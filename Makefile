@@ -2,12 +2,12 @@
 
 NAME =	ft_gkrillm
 CC =	clang++
-FLAGS =	
+FLAGS =	#-Werror -Wextra -Wall
 LIB =  -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -lncurses
 SDIR =	src/
 ODIR =	obj/
 IDIR =	includes/
-SRC =	main.cpp Monitor.cpp Ncurses.cpp
+SRC =	main.cpp Monitor.cpp Ncurses.cpp line_to_image.cpp 
 INC =	IMonitorDisplay.hpp IMonitorModule.hpp Monitor.hpp header.hpp Ncurses.hpp
 OBJ =	$(SRC:.cpp=.o)
 I =		$(addprefix $(IDIR), $(INC))

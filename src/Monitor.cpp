@@ -44,7 +44,7 @@ Monitor::Monitor(const Monitor &old)
 }
 Monitor &Monitor::operator = (const Monitor &old)
 {
-	*this = old;
+	this->size = old.size;
 	return *this;
 }
 void Monitor::add_module(int act)

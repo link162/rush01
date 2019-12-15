@@ -5,7 +5,7 @@ Ncurses::~Ncurses() {}
 Ncurses::Ncurses(Ncurses const &old) { *this = old;}
 Ncurses &Ncurses::operator = (Ncurses const &old)
 {
-	*this = old;
+	this->w_width = old.w_width;
 	return *this;
 }
 void Ncurses::init(void)

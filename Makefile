@@ -2,7 +2,7 @@
 
 NAME =	ft_gkrillm
 CC =	clang++
-FLAGS =	#-Werror -Wextra -Wall
+FLAGS =	-Werror -Wextra -Wall
 LIB =  -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -lncurses
 SDIR =	src/
 ODIR =	obj/
